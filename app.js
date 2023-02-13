@@ -1,6 +1,6 @@
 const fs = require('fs');
 const ClassLoader = require('./lib/class_loader');
-// const JavaEmulator = require('./lib/emulator');
+const JavaEmulator = require('./lib/emulator');
 let ancestry = {};
 let dependency = {};
 
@@ -50,19 +50,9 @@ function markCalledClass(classLoader, thisClass, thatClass) {
 
 }
 
-
-let loader = new ClassLoader(true);
-loader.addClasspath('/Users/sergey/Projects/Java/apache-tomcat-9.0.12/lib');
-
-console.time('ClassLoad');
-loader.indexJarFiles('/Users/sergey/Projects/Java/apache-tomcat-9.0.12/lib');
-// loader.indexJarFiles('C:/devenv/Projects/dev/Lib');
-let cls = loader.getClass('org/apache/catalina/authenticator/AuthenticatorBase',true)
-console.timeEnd('ClassLoad');
-
-// console.time('bigClassLoad');
-// let amazonS3 = loader.getClass("com/amazonaws/services/s3/AmazonS3Client");
-// console.timeEnd('bigClassLoad');
+console.time('bigClassLoad');
+let amazonS3 = loader.getClass("com/amazonaws/services/s3/AmazonS3Client");
+console.timeEnd('bigClassLoad');
 
 // process.exit(0);
 let processedClasses = 0;
