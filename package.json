@@ -1,14 +1,13 @@
 {
-  "name": "test-java-fields",
-  "version": "0.0.1",
+  "name": "java-emulator.js",
+  "version": "0.0.13",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Sergey Kuznetsov <skuznetsov@paymentus.com>",
+  "author": "Sergey Kuznetsov <github@rigelstar.com>",
   "license": "ISC",
   "dependencies": {
-    "adm-zip": "^0.4.11"
   }
 }
