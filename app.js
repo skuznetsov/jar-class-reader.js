@@ -79,6 +79,12 @@ class ClassProcessor {
 
             for (let method of ca.methods) {
                 let emulator = new JavaEmulator(this.classLoader, ca);
+                emulator.on('invoke', (from, to) => {
+                    this.recordRelationship(from, to, "calling", "calledBy");
+                });
+                emulator.on('field_access', (from, to) => {
+                    this.recordRelationship(from, to, "calling", "calledBy");
+                });
                 await emulator.emulateMethod(method);
             }
             let externalClasses = ca.externalClasses;
